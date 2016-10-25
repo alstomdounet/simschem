@@ -4,7 +4,7 @@
 -- 
 -- Create Date: See configuration management
 -- Design Name: 
--- Module Name: cmd_sample - Behavioral
+-- Module Name: cmp_sample - Behavioral
 -- Project Name: SimSchem
 -- Target Devices: 
 -- Tool versions: Used with Xilinx ISE 14.7
@@ -22,13 +22,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
 
-entity cmd_sample is
+entity cmp_sample is
     Port ( X1 : inout  STD_LOGIC;
            X2 : inout  STD_LOGIC;
            state : out  STD_LOGIC);
-end cmd_sample;
+end cmp_sample;
 
-architecture Behavioral of cmd_sample is
+architecture Behavioral of cmp_sample is
 
 begin
 

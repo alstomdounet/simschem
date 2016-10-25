@@ -31,7 +31,7 @@ end cmp_switch;
 architecture Behavioral of cmp_switch is
 
 begin
-
+	X1 <= X2 when state = '1' else (others => 'Z'); -- code taken from http://www.edaboard.com/thread55243.html
 
 end Behavioral;
 

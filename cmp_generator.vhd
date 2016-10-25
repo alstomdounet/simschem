@@ -31,7 +31,8 @@ end cmp_generator;
 architecture Behavioral of cmp_generator is
 
 begin
-
-
+	X2 <= '1';
+	X1 <= '0';
+	state <= X1 or X2;
 end Behavioral;
 

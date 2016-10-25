@@ -54,10 +54,9 @@ ARCHITECTURE behavior OF tb_basic IS
 
  	--Outputs
    signal state : std_logic;
-   -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
-   constant <clock>_period : time := 10 ns;
+   constant X1_period : time := 10 ns;
  
 BEGIN
  
@@ -69,22 +68,22 @@ BEGIN
         );
 
    -- Clock process definitions
-   <clock>_process :process
+   X1_process :process
    begin
-		<clock> <= '0';
-		wait for <clock>_period/2;
-		<clock> <= '1';
-		wait for <clock>_period/2;
+		X1 <= '0';
+		wait for X1_period/2;
+		X1 <= '1';
+		wait for X1_period/2;
    end process;
  
 
    -- Stimulus process
    stim_proc: process
-   begin		
+   begin
       -- hold reset state for 100 ns.
-      wait for 100 ns;	
+      wait for 100 ns;
 
-      wait for <clock>_period*10;
+      wait for X1_period*10;
 
       -- insert stimulus here 
 

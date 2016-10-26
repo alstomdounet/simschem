@@ -49,31 +49,46 @@ ARCHITECTURE behavior OF tb_basic IS
     
 
 	--BiDirs
-   signal X1 : std_logic;
-   signal X2 : std_logic;
+	signal A : std_logic;
+	signal B : std_logic;
+	signal C : std_logic;
+	signal switch_state : std_logic;
 
- 	--Outputs
-   signal state : std_logic;
-   -- appropriate port name 
- 
-   constant X1_period : time := 10 ns;
+	--Outputs
+	signal state : std_logic;
+
+	-- appropriate port name 
+	constant switch_period : time := 10 ns;
  
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: cmp_generator PORT MAP (
-          X1 => X1,
-          X2 => X2,
+   uut1: cmp_generator PORT MAP (
+          A => X1,
+          B => X2,
           state => state
         );
+		  
+   uut2: cmp_generator PORT MAP (
+          C => X1,
+          A => X2,
+          state => state
+        );
+		  
+	switch1 : entity work.cmp_switch PORT MAP (
+          B => X1,
+          C => X2,
+          switch_state => state
+        );
+	
 
    -- Clock process definitions
    X1_process :process
    begin
-		X1 <= '0';
-		wait for X1_period/2;
-		X1 <= '1';
-		wait for X1_period/2;
+		switch_state <= '0';
+		wait for switch_period/2;
+		switch_state <= '1';
+		wait for switch_period/2;
    end process;
  
 
@@ -83,7 +98,7 @@ BEGIN
       -- hold reset state for 100 ns.
       wait for 100 ns;
 
-      wait for X1_period*10;
+      wait for switch_period*10;
 
       -- insert stimulus here 
 

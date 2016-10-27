@@ -1,7 +1,7 @@
 -- http://rouillard.org/ecrire-vhdl-et-ams.pdf
 
-library
- ieee;use ieee.std_logic_1164.all; 
+library ieee;
+use ieee.std_logic_1164.all; 
 use work.switch_util.all; 
 entity switch is
 generic (genre: genre_mos);   
